@@ -115,128 +115,90 @@ DADOS DO DESIGN: "${designInfo.name}"
 
     designDescription += `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
 
-    const prompt = `Você é Nilson, um especialista em Usabilidade e UX que avalia interfaces usando as 10 Heurísticas de Nielsen.
+    const prompt = `Você é Nilson, especialista em Usabilidade. Analise este design usando as 10 Heurísticas de Nielsen.
 
 ${designDescription}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-AS 10 HEURÍSTICAS DE NIELSEN:
-
-1. Visibilidade do status do sistema
-2. Correspondência entre o sistema e o mundo real
-3. Controle e liberdade do usuário
-4. Consistência e padrões
-5. Prevenção de erros
-6. Reconhecimento em vez de memorização
-7. Flexibilidade e eficiência de uso
-8. Estética e design minimalista
-9. Ajudar usuários a reconhecer, diagnosticar e recuperar erros
-10. Ajuda e documentação
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-IMPORTANTE:
-- Analise o design APENAS sob a perspectiva das heurísticas de Nielsen
-- NÃO liste dados brutos (RGB, tamanhos de fonte completos)
-- Escreva em TEXTO CORRIDO (parágrafos fluidos e naturais)
-- Seja CRÍTICO mas construtivo
-- Mencione QUAL heurística está sendo violada ou bem aplicada
-- Dê exemplos concretos do que você observa
-- Sugira melhorias específicas
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Analise seguindo esta estrutura:
+Analise TODAS as 10 heurísticas. Seja CONCISO mas completo.
 
 **🎯 VISÃO GERAL**
-
-[Escreva 2-3 frases introdutórias sobre o design analisado e como as heurísticas de Nielsen serão aplicadas]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-**📋 AVALIAÇÃO HEURÍSTICA**
-
-**Heurística 1: Visibilidade do Status do Sistema**
-[Analise se o design comunica claramente o que está acontecendo. Há feedbacks visuais? Estados (hover, active, disabled) estão representados? O usuário sabe onde está? Seja específico sobre o que você vê nos dados.]
-
-**Heurística 2: Correspondência entre Sistema e Mundo Real**
-[A linguagem é familiar? Ícones e labels fazem sentido? Metáforas visuais são claras? Analise textos e elementos visuais.]
-
-**Heurística 3: Controle e Liberdade do Usuário**
-[Há botões de cancelar, voltar ou desfazer? O design permite que o usuário corrija erros facilmente? Comente sobre a navegação e interações possíveis.]
-
-**Heurística 4: Consistência e Padrões**
-[A tipografia é consistente? Cores seguem um padrão? Espaçamentos são uniformes? Elementos similares se parecem? Aponte inconsistências específicas que você observa.]
-
-**Heurística 5: Prevenção de Erros**
-[O design previne erros? Há confirmações? Validações? States desabilitados para ações impossíveis? Comente sobre possíveis pontos de erro.]
-
-**Heurística 6: Reconhecimento em vez de Memorização**
-[Informações importantes estão visíveis? O usuário precisa lembrar de algo de outra tela? Labels e instruções são claras?]
-
-**Heurística 7: Flexibilidade e Eficiência de Uso**
-[O design atende iniciantes e experts? Há atalhos? A interface é eficiente? Pode ser otimizada?]
-
-**Heurística 8: Estética e Design Minimalista**
-[Há elementos desnecessários? A interface é limpa? Informação está organizada por relevância? Comente sobre hierarquia visual e poluição.]
-
-**Heurística 9: Ajuda para Reconhecer e Recuperar Erros**
-[Mensagens de erro são claras? Há tooltips? Instruções? Como o design ajuda quando algo dá errado?]
-
-**Heurística 10: Ajuda e Documentação**
-[Há elementos de ajuda? Tooltips? Placeholders informativos? O design é autoexplicativo?]
+[2-3 frases sobre o design]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-**⚠️ PRINCIPAIS VIOLAÇÕES**
+**📋 AVALIAÇÃO DAS 10 HEURÍSTICAS**
 
-[Escreva 2-3 parágrafos em texto corrido sobre as violações mais críticas que você identificou. Para cada uma, mencione: qual heurística está sendo violada, por que isso é problemático, e como corrigir. Seja específico e use exemplos do design.]
+**1. Visibilidade do Status do Sistema**
+[Parágrafo conciso sobre feedbacks visuais, estados, indicadores. O que você observa nos dados?]
+
+**2. Correspondência com o Mundo Real**
+[Parágrafo sobre linguagem, ícones, metáforas. Analise os textos e elementos.]
+
+**3. Controle e Liberdade do Usuário**
+[Parágrafo sobre navegação, cancelamento, reversão de ações.]
+
+**4. Consistência e Padrões**
+[Parágrafo sobre uniformidade tipográfica, cores, espaçamentos. Seja específico sobre inconsistências.]
+
+**5. Prevenção de Erros**
+[Parágrafo sobre validações, confirmações, states desabilitados.]
+
+**6. Reconhecimento vs Memorização**
+[Parágrafo sobre visibilidade de informações, clareza de labels.]
+
+**7. Flexibilidade e Eficiência**
+[Parágrafo sobre otimização para diferentes níveis de usuário.]
+
+**8. Estética e Minimalismo**
+[Parágrafo sobre limpeza visual, elementos desnecessários, hierarquia.]
+
+**9. Recuperação de Erros**
+[Parágrafo sobre mensagens de erro, ajuda contextual, tooltips.]
+
+**10. Ajuda e Documentação**
+[Parágrafo sobre elementos de suporte, autoexplicação.]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-**✅ PONTOS POSITIVOS**
-
-[Escreva um parágrafo sobre o que está funcionando bem em relação às heurísticas. Seja honesto - se não houver pontos fortes, diga isso de forma construtiva.]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-**🚀 RECOMENDAÇÕES PRIORITÁRIAS**
-
-[Escreva 2-3 parágrafos com as ações mais importantes que devem ser tomadas. Organize por impacto (alto para baixo). Para cada recomendação, explique qual heurística será melhorada e como implementar.]
+**⚠️ TOP 3 VIOLAÇÕES CRÍTICAS**
+[3 parágrafos concisos - uma violação por parágrafo]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-**📊 SCORE HEURÍSTICO**
+**🚀 TOP 3 AÇÕES PRIORITÁRIAS**
+1. [Ação específica com valores]
+2. [Ação específica com valores]
+3. [Ação específica com valores]
 
-Visibilidade do Status: [X]/10
-Correspondência com Mundo Real: [X]/10
-Controle e Liberdade: [X]/10
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**📊 SCORES**
+Visibilidade: [X]/10
+Correspondência: [X]/10
+Controle: [X]/10
 Consistência: [X]/10
-Prevenção de Erros: [X]/10
+Prevenção: [X]/10
 Reconhecimento: [X]/10
 Flexibilidade: [X]/10
 Minimalismo: [X]/10
-Recuperação de Erros: [X]/10
-Ajuda e Documentação: [X]/10
+Recuperação: [X]/10
+Ajuda: [X]/10
 
-**SCORE GERAL DE USABILIDADE: [X]/10**
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-**💬 PARECER FINAL**
-
-[Escreva 2-3 parágrafos com uma conclusão geral sobre a usabilidade do design. Seja honesto sobre o nível de maturidade em termos de heurísticas de Nielsen. Termine de forma motivadora, indicando os próximos passos e o impacto que as melhorias terão na experiência do usuário.]
+**GERAL: [X]/10**
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-LEMBRE-SE:
-- Escreva em TEXTO CORRIDO (parágrafos naturais, não listas de bullets)
-- NÃO repita dados técnicos (RGB, todos os tamanhos)
-- FOQUE em insights de usabilidade
-- CITE as heurísticas pelo nome ao analisar
-- Seja ESPECÍFICO sobre o que você observa
-- Mantenha tom profissional mas acessível`;
+**💬 CONCLUSÃO**
+[2 parágrafos finais - estado atual e próximos passos]
+
+REGRAS:
+- Responda TODAS as 10 heurísticas
+- Seja CONCISO (1 parágrafo por heurística)
+- Use dados concretos do design
+- NÃO repita dados brutos
+- Complete a análise até o fim`;
 
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
@@ -247,7 +209,7 @@ LEMBRE-SE:
           contents: [{ parts: [{ text: prompt }] }],
           generationConfig: {
             temperature: 0.7,
-            maxOutputTokens: 4096
+            maxOutputTokens: 8192
           }
         })
       }
@@ -267,6 +229,16 @@ LEMBRE-SE:
 
     const data = await response.json();
     console.log('Resposta Gemini recebida com sucesso');
+    
+    // Verificar se a resposta foi cortada
+    if (data.candidates && data.candidates[0]) {
+      const finishReason = data.candidates[0].finishReason;
+      console.log('Finish Reason:', finishReason);
+      
+      if (finishReason === 'MAX_TOKENS') {
+        console.warn('⚠️ ATENÇÃO: Resposta foi cortada por atingir o limite de tokens!');
+      }
+    }
     
     if (!data.candidates || !data.candidates[0]) {
       console.error('Estrutura de resposta inválida:', data);
