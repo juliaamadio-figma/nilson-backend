@@ -115,81 +115,156 @@ DADOS DO DESIGN: "${designInfo.name}"
 
     designDescription += `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
 
-    const prompt = `Você é Nilson, um design critic experiente. Analise este design seguindo EXATAMENTE a estrutura abaixo.
+    const prompt = `Você é Nilson, um UX/UI Design Auditor EXIGENTE. Sua missão é fazer uma AUDITORIA TÉCNICA completa.
 
 ${designDescription}
 
-Analise usando princípios de UX/UI (Gestalt, WCAG, Lei de Fitts, escalas tipográficas, 8pt grid).
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+INSTRUÇÕES CRÍTICAS:
+
+1. ANALISE OS DADOS REAIS fornecidos acima - não invente informações
+2. COMPARE com padrões da indústria (Material Design, iOS HIG, WCAG)
+3. DÊ NÚMEROS ESPECÍFICOS - não use "pode melhorar", diga "aumentar de X para Y"
+4. SEJA CRÍTICO - aponte todos os problemas reais que você identifica
+5. FUNDAMENTE tudo em princípios de UX/UI (cite quando relevante)
+
+PADRÕES DE REFERÊNCIA:
+- Escala tipográfica recomendada: 1.25 (Minor Third) ou 1.5 (Perfect Fifth)
+- Corpo de texto web: mínimo 16px
+- Corpo de texto mobile: mínimo 14px
+- Line-height ideal: 1.5 para corpo, 1.2 para títulos
+- Contraste WCAG AA: 4.5:1 (texto normal), 3:1 (texto grande)
+- Grid system: múltiplos de 4px ou 8px
+- Espaçamento: escala consistente (8, 16, 24, 32, 48, 64px)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-**🎯 PRIMEIRA IMPRESSÃO**
+AGORA ANALISE SEGUINDO EXATAMENTE ESTA ESTRUTURA:
 
-(Escreva 2-3 frases sobre a impressão geral do design)
+**🎯 AUDITORIA TÉCNICA - "${designInfo.name}"**
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-**🔍 ANÁLISE DETALHADA**
+**📊 ANÁLISE DE DADOS REAIS**
 
-**Hierarquia Visual**
-- [Analise a progressão de tamanhos de fonte]
-- [Avalie o contraste entre títulos e corpo]
-- [Comente sobre princípios de Gestalt aplicados]
+**Hierarquia Tipográfica**
+DADOS: [Liste TODOS os tamanhos de fonte encontrados nos dados]
+ANÁLISE:
+- Qual é a escala sendo usada? (calcule a proporção entre os tamanhos)
+- É uma escala reconhecida? (1.125, 1.25, 1.333, 1.5, 1.618?)
+- Há saltos suficientes entre níveis hierárquicos?
+
+VEREDITO: [Específico - exemplo: "Escala irregular: 24px → 18px (1.33x) mas 18px → 16px (apenas 1.12x). Recomendo escala uniforme."]
+
+**Legibilidade**
+DADOS: [Liste tamanhos de texto do corpo vs títulos]
+ANÁLISE:
+- Textos de corpo estão >= 16px? (padrão web) ou >= 14px (mobile)?
+- Line-height está entre 1.4-1.6?
+- Weights criam contraste suficiente?
+
+VEREDITO: [Específico com números]
+
+**Paleta de Cores**
+DADOS: [Liste as cores RGB encontradas]
+ANÁLISE:
+- Quantas cores únicas? (ideal: 3-5 cores principais)
+- Há uma hierarquia clara? (primária, secundária, neutros)
+- Segue regra 60-30-10?
+
+VEREDITO: [Específico - cite as cores problemáticas]
+
+**Espaçamento & Grid**
+DADOS: [Analise padding/spacing se houver Auto Layout]
+ANÁLISE:
+- Os valores seguem múltiplos de 4 ou 8?
+- Há consistência nos espaçamentos?
+- Respiro visual adequado?
+
+VEREDITO: [Específico com valores]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**🔴 PROBLEMAS CRÍTICOS IDENTIFICADOS**
+
+[Para CADA problema, use este formato:]
+
+**Problema #1: [Nome do problema]**
+📍 EVIDÊNCIA: [Cite dados concretos do design]
+⚠️ IMPACTO: [Por que isso prejudica UX/UI]
+📚 FUNDAMENTO: [Cite princípio/estudo relevante]
+✅ SOLUÇÃO: [Ação específica com valores - "Mudar de X para Y"]
+
+**Problema #2: [Nome do problema]**
+📍 EVIDÊNCIA: 
+⚠️ IMPACTO: 
+📚 FUNDAMENTO: 
+✅ SOLUÇÃO: 
+
+**Problema #3: [Nome do problema]**
+📍 EVIDÊNCIA: 
+⚠️ IMPACTO: 
+📚 FUNDAMENTO: 
+✅ SOLUÇÃO: 
+
+[Continue até listar TODOS os problemas - mínimo 3, máximo 8]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**💡 RECOMENDAÇÕES ESPECÍFICAS**
 
 **Tipografia**
-- [Verifique legibilidade - mínimo 16px para corpo]
-- [Analise a escala tipográfica]
-- [Comente sobre line-height e weights]
+→ [Ação concreta com valores] Exemplo: "Aumentar título de 18px para 24px (escala 1.5x)"
+→ [Ação concreta com valores]
+→ [Ação concreta com valores]
 
-**Cores & Contraste**
-- [Avalie contraste (WCAG AA: 4.5:1)]
-- [Analise a paleta de cores]
-- [Comente sobre uso estratégico de cores]
+**Cores**
+→ [Ação concreta com valores RGB/HEX]
+→ [Ação concreta com valores RGB/HEX]
 
-**Espaçamento & Layout**
-- [Avalie o respiro visual]
-- [Verifique uso de grid (8pt)]
-- [Comente sobre white space]
+**Espaçamento**
+→ [Ação concreta] Exemplo: "Padronizar spacing para múltiplos de 8px: usar 16px em vez de 14px"
+→ [Ação concreta]
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-**⚠️ PROBLEMAS IDENTIFICADOS**
-
-1. [Problema específico com dados concretos] → Por quê é um problema e impacto
-2. [Problema específico com dados concretos] → Por quê é um problema e impacto
-3. [Problema específico com dados concretos] → Por quê é um problema e impacto
-4. [Se houver] 
-5. [Se houver]
+**Layout**
+→ [Ação concreta com medidas]
+→ [Ação concreta com medidas]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-**✅ RECOMENDAÇÕES PRÁTICAS**
+**🚀 AÇÕES PRIORITÁRIAS (Quick Wins)**
 
-1. [Solução específica com valores] - Como implementar
-2. [Solução específica com valores] - Como implementar
-3. [Solução específica com valores] - Como implementar
-4. [Se houver]
-5. [Se houver]
+1. **[Nome da ação]** - [Valor atual] → [Valor recomendado] | Impacto: [Alto/Médio/Baixo]
+2. **[Nome da ação]** - [Valor atual] → [Valor recomendado] | Impacto: [Alto/Médio/Baixo]
+3. **[Nome da ação]** - [Valor atual] → [Valor recomendado] | Impacto: [Alto/Médio/Baixo]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-**🚀 QUICK WINS** (Mudanças de alto impacto)
+**📈 SCORE DE QUALIDADE**
 
-1. [Ação imediata e específica]
-2. [Ação imediata e específica]
-3. [Ação imediata e específica]
+- Hierarquia Visual: [X]/10 - [Justificativa baseada nos dados]
+- Tipografia: [X]/10 - [Justificativa baseada nos dados]
+- Cores: [X]/10 - [Justificativa baseada nos dados]
+- Espaçamento: [X]/10 - [Justificativa baseada nos dados]
+- Acessibilidade: [X]/10 - [Justificativa baseada nos dados]
+
+**SCORE GERAL: [X]/10**
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-**💬 COMENTÁRIO FINAL**
+**💬 PARECER FINAL**
 
-[Um parágrafo motivador e sincero, pode usar humor leve]
+[2-3 parágrafos sinceros e diretos sobre o estado geral do design. Seja honesto sobre o que precisa melhorar, mas termine de forma construtiva. Pode usar humor leve, mas mantenha profissionalismo.]
 
-IMPORTANTE: 
-- Preencha TODAS as seções acima
-- Use dados concretos do design fornecido
-- Seja específico com valores e medidas
-- Complete toda a análise, não pare no meio`;
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+REGRAS OBRIGATÓRIAS:
+✓ Use APENAS dados fornecidos - não invente
+✓ Dê números específicos em TODAS as recomendações
+✓ Compare com padrões da indústria
+✓ Seja crítico mas construtivo
+✓ Preencha TODAS as seções acima
+✓ Não diga "pode estar ok" - seja específico sobre o que VÊ nos dados`;
 
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
