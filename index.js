@@ -25,6 +25,38 @@ app.get('/debug', (req, res) => {
   });
 });
 
+app.get('/list-models', async (req, res) => {
+  try {
+    if (!GEMINI_API_KEY) {
+      return res.status(500).json({ error: 'API Key não configurada' });
+    }
+
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models?key=${GEMINI_API_KEY}`
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      return res.status(500).json({ error: errorText });
+    }
+
+    const data = await response.json();
+    
+    // Filtra apenas modelos que suportam generateContent
+    const generateModels = data.models?.filter(m => 
+      m.supportedGenerationMethods?.includes('generateContent')
+    );
+
+    res.json({ 
+      total: generateModels?.length || 0,
+      models: generateModels?.map(m => m.name) || []
+    });
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 app.get('/analyze', (req, res) => {
   res.json({ 
     status: 'ok', 
@@ -82,10 +114,8 @@ Forneça uma análise completa avaliando:
 
 Seja específico, construtivo e acionável.`;
 
-    // ✅ CORRIGIDO: Usando v1beta (não v1)
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`
-,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key=${GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
