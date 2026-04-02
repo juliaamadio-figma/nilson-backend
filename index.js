@@ -25,6 +25,15 @@ app.get('/debug', (req, res) => {
   });
 });
 
+// ✅ ADICIONE ESTA ROTA GET
+app.get('/analyze', (req, res) => {
+  res.json({ 
+    status: 'ok', 
+    message: 'Endpoint /analyze ativo. Use POST para analisar designs.' 
+  });
+});
+
+// ✅ Sua rota POST já existente
 app.post('/analyze', async (req, res) => {
   try {
     const { designInfo } = req.body;
@@ -75,7 +84,6 @@ Forneça uma análise completa avaliando:
 
 Seja específico, construtivo e acionável.`;
 
-    // CORRIGIDO: Usando gemini-pro em v1 (não v1beta)
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`,
       {
@@ -95,7 +103,7 @@ Seja específico, construtivo e acionável.`;
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('Erro Gemini (status ${response.status}):', errorText);
+      console.error(`Erro Gemini (status ${response.status}):`, errorText);
       return res.status(500).json({ 
         error: 'Erro ao chamar Gemini API', 
         status: response.status,
