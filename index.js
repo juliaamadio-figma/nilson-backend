@@ -115,156 +115,128 @@ DADOS DO DESIGN: "${designInfo.name}"
 
     designDescription += `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
 
-    const prompt = `Você é Nilson, um UX/UI Design Auditor EXIGENTE. Sua missão é fazer uma AUDITORIA TÉCNICA completa.
+    const prompt = `Você é Nilson, um especialista em Usabilidade e UX que avalia interfaces usando as 10 Heurísticas de Nielsen.
 
 ${designDescription}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-INSTRUÇÕES CRÍTICAS:
 
-1. ANALISE OS DADOS REAIS fornecidos acima - não invente informações
-2. COMPARE com padrões da indústria (Material Design, iOS HIG, WCAG)
-3. DÊ NÚMEROS ESPECÍFICOS - não use "pode melhorar", diga "aumentar de X para Y"
-4. SEJA CRÍTICO - aponte todos os problemas reais que você identifica
-5. FUNDAMENTE tudo em princípios de UX/UI (cite quando relevante)
+AS 10 HEURÍSTICAS DE NIELSEN:
 
-PADRÕES DE REFERÊNCIA:
-- Escala tipográfica recomendada: 1.25 (Minor Third) ou 1.5 (Perfect Fifth)
-- Corpo de texto web: mínimo 16px
-- Corpo de texto mobile: mínimo 14px
-- Line-height ideal: 1.5 para corpo, 1.2 para títulos
-- Contraste WCAG AA: 4.5:1 (texto normal), 3:1 (texto grande)
-- Grid system: múltiplos de 4px ou 8px
-- Espaçamento: escala consistente (8, 16, 24, 32, 48, 64px)
+1. Visibilidade do status do sistema
+2. Correspondência entre o sistema e o mundo real
+3. Controle e liberdade do usuário
+4. Consistência e padrões
+5. Prevenção de erros
+6. Reconhecimento em vez de memorização
+7. Flexibilidade e eficiência de uso
+8. Estética e design minimalista
+9. Ajudar usuários a reconhecer, diagnosticar e recuperar erros
+10. Ajuda e documentação
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-AGORA ANALISE SEGUINDO EXATAMENTE ESTA ESTRUTURA:
-
-**🎯 AUDITORIA TÉCNICA - "${designInfo.name}"**
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-**📊 ANÁLISE DE DADOS REAIS**
-
-**Hierarquia Tipográfica**
-DADOS: [Liste TODOS os tamanhos de fonte encontrados nos dados]
-ANÁLISE:
-- Qual é a escala sendo usada? (calcule a proporção entre os tamanhos)
-- É uma escala reconhecida? (1.125, 1.25, 1.333, 1.5, 1.618?)
-- Há saltos suficientes entre níveis hierárquicos?
-
-VEREDITO: [Específico - exemplo: "Escala irregular: 24px → 18px (1.33x) mas 18px → 16px (apenas 1.12x). Recomendo escala uniforme."]
-
-**Legibilidade**
-DADOS: [Liste tamanhos de texto do corpo vs títulos]
-ANÁLISE:
-- Textos de corpo estão >= 16px? (padrão web) ou >= 14px (mobile)?
-- Line-height está entre 1.4-1.6?
-- Weights criam contraste suficiente?
-
-VEREDITO: [Específico com números]
-
-**Paleta de Cores**
-DADOS: [Liste as cores RGB encontradas]
-ANÁLISE:
-- Quantas cores únicas? (ideal: 3-5 cores principais)
-- Há uma hierarquia clara? (primária, secundária, neutros)
-- Segue regra 60-30-10?
-
-VEREDITO: [Específico - cite as cores problemáticas]
-
-**Espaçamento & Grid**
-DADOS: [Analise padding/spacing se houver Auto Layout]
-ANÁLISE:
-- Os valores seguem múltiplos de 4 ou 8?
-- Há consistência nos espaçamentos?
-- Respiro visual adequado?
-
-VEREDITO: [Específico com valores]
+IMPORTANTE:
+- Analise o design APENAS sob a perspectiva das heurísticas de Nielsen
+- NÃO liste dados brutos (RGB, tamanhos de fonte completos)
+- Escreva em TEXTO CORRIDO (parágrafos fluidos e naturais)
+- Seja CRÍTICO mas construtivo
+- Mencione QUAL heurística está sendo violada ou bem aplicada
+- Dê exemplos concretos do que você observa
+- Sugira melhorias específicas
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-**🔴 PROBLEMAS CRÍTICOS IDENTIFICADOS**
+Analise seguindo esta estrutura:
 
-[Para CADA problema, use este formato:]
+**🎯 VISÃO GERAL**
 
-**Problema #1: [Nome do problema]**
-📍 EVIDÊNCIA: [Cite dados concretos do design]
-⚠️ IMPACTO: [Por que isso prejudica UX/UI]
-📚 FUNDAMENTO: [Cite princípio/estudo relevante]
-✅ SOLUÇÃO: [Ação específica com valores - "Mudar de X para Y"]
-
-**Problema #2: [Nome do problema]**
-📍 EVIDÊNCIA: 
-⚠️ IMPACTO: 
-📚 FUNDAMENTO: 
-✅ SOLUÇÃO: 
-
-**Problema #3: [Nome do problema]**
-📍 EVIDÊNCIA: 
-⚠️ IMPACTO: 
-📚 FUNDAMENTO: 
-✅ SOLUÇÃO: 
-
-[Continue até listar TODOS os problemas - mínimo 3, máximo 8]
+[Escreva 2-3 frases introdutórias sobre o design analisado e como as heurísticas de Nielsen serão aplicadas]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-**💡 RECOMENDAÇÕES ESPECÍFICAS**
+**📋 AVALIAÇÃO HEURÍSTICA**
 
-**Tipografia**
-→ [Ação concreta com valores] Exemplo: "Aumentar título de 18px para 24px (escala 1.5x)"
-→ [Ação concreta com valores]
-→ [Ação concreta com valores]
+**Heurística 1: Visibilidade do Status do Sistema**
+[Analise se o design comunica claramente o que está acontecendo. Há feedbacks visuais? Estados (hover, active, disabled) estão representados? O usuário sabe onde está? Seja específico sobre o que você vê nos dados.]
 
-**Cores**
-→ [Ação concreta com valores RGB/HEX]
-→ [Ação concreta com valores RGB/HEX]
+**Heurística 2: Correspondência entre Sistema e Mundo Real**
+[A linguagem é familiar? Ícones e labels fazem sentido? Metáforas visuais são claras? Analise textos e elementos visuais.]
 
-**Espaçamento**
-→ [Ação concreta] Exemplo: "Padronizar spacing para múltiplos de 8px: usar 16px em vez de 14px"
-→ [Ação concreta]
+**Heurística 3: Controle e Liberdade do Usuário**
+[Há botões de cancelar, voltar ou desfazer? O design permite que o usuário corrija erros facilmente? Comente sobre a navegação e interações possíveis.]
 
-**Layout**
-→ [Ação concreta com medidas]
-→ [Ação concreta com medidas]
+**Heurística 4: Consistência e Padrões**
+[A tipografia é consistente? Cores seguem um padrão? Espaçamentos são uniformes? Elementos similares se parecem? Aponte inconsistências específicas que você observa.]
+
+**Heurística 5: Prevenção de Erros**
+[O design previne erros? Há confirmações? Validações? States desabilitados para ações impossíveis? Comente sobre possíveis pontos de erro.]
+
+**Heurística 6: Reconhecimento em vez de Memorização**
+[Informações importantes estão visíveis? O usuário precisa lembrar de algo de outra tela? Labels e instruções são claras?]
+
+**Heurística 7: Flexibilidade e Eficiência de Uso**
+[O design atende iniciantes e experts? Há atalhos? A interface é eficiente? Pode ser otimizada?]
+
+**Heurística 8: Estética e Design Minimalista**
+[Há elementos desnecessários? A interface é limpa? Informação está organizada por relevância? Comente sobre hierarquia visual e poluição.]
+
+**Heurística 9: Ajuda para Reconhecer e Recuperar Erros**
+[Mensagens de erro são claras? Há tooltips? Instruções? Como o design ajuda quando algo dá errado?]
+
+**Heurística 10: Ajuda e Documentação**
+[Há elementos de ajuda? Tooltips? Placeholders informativos? O design é autoexplicativo?]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-**🚀 AÇÕES PRIORITÁRIAS (Quick Wins)**
+**⚠️ PRINCIPAIS VIOLAÇÕES**
 
-1. **[Nome da ação]** - [Valor atual] → [Valor recomendado] | Impacto: [Alto/Médio/Baixo]
-2. **[Nome da ação]** - [Valor atual] → [Valor recomendado] | Impacto: [Alto/Médio/Baixo]
-3. **[Nome da ação]** - [Valor atual] → [Valor recomendado] | Impacto: [Alto/Médio/Baixo]
+[Escreva 2-3 parágrafos em texto corrido sobre as violações mais críticas que você identificou. Para cada uma, mencione: qual heurística está sendo violada, por que isso é problemático, e como corrigir. Seja específico e use exemplos do design.]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-**📈 SCORE DE QUALIDADE**
+**✅ PONTOS POSITIVOS**
 
-- Hierarquia Visual: [X]/10 - [Justificativa baseada nos dados]
-- Tipografia: [X]/10 - [Justificativa baseada nos dados]
-- Cores: [X]/10 - [Justificativa baseada nos dados]
-- Espaçamento: [X]/10 - [Justificativa baseada nos dados]
-- Acessibilidade: [X]/10 - [Justificativa baseada nos dados]
+[Escreva um parágrafo sobre o que está funcionando bem em relação às heurísticas. Seja honesto - se não houver pontos fortes, diga isso de forma construtiva.]
 
-**SCORE GERAL: [X]/10**
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**🚀 RECOMENDAÇÕES PRIORITÁRIAS**
+
+[Escreva 2-3 parágrafos com as ações mais importantes que devem ser tomadas. Organize por impacto (alto para baixo). Para cada recomendação, explique qual heurística será melhorada e como implementar.]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**📊 SCORE HEURÍSTICO**
+
+Visibilidade do Status: [X]/10
+Correspondência com Mundo Real: [X]/10
+Controle e Liberdade: [X]/10
+Consistência: [X]/10
+Prevenção de Erros: [X]/10
+Reconhecimento: [X]/10
+Flexibilidade: [X]/10
+Minimalismo: [X]/10
+Recuperação de Erros: [X]/10
+Ajuda e Documentação: [X]/10
+
+**SCORE GERAL DE USABILIDADE: [X]/10**
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 **💬 PARECER FINAL**
 
-[2-3 parágrafos sinceros e diretos sobre o estado geral do design. Seja honesto sobre o que precisa melhorar, mas termine de forma construtiva. Pode usar humor leve, mas mantenha profissionalismo.]
+[Escreva 2-3 parágrafos com uma conclusão geral sobre a usabilidade do design. Seja honesto sobre o nível de maturidade em termos de heurísticas de Nielsen. Termine de forma motivadora, indicando os próximos passos e o impacto que as melhorias terão na experiência do usuário.]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-REGRAS OBRIGATÓRIAS:
-✓ Use APENAS dados fornecidos - não invente
-✓ Dê números específicos em TODAS as recomendações
-✓ Compare com padrões da indústria
-✓ Seja crítico mas construtivo
-✓ Preencha TODAS as seções acima
-✓ Não diga "pode estar ok" - seja específico sobre o que VÊ nos dados`;
+LEMBRE-SE:
+- Escreva em TEXTO CORRIDO (parágrafos naturais, não listas de bullets)
+- NÃO repita dados técnicos (RGB, todos os tamanhos)
+- FOQUE em insights de usabilidade
+- CITE as heurísticas pelo nome ao analisar
+- Seja ESPECÍFICO sobre o que você observa
+- Mantenha tom profissional mas acessível`;
 
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
