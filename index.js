@@ -42,7 +42,6 @@ app.get('/list-models', async (req, res) => {
 
     const data = await response.json();
     
-    // Filtra apenas modelos que suportam generateContent
     const generateModels = data.models?.filter(m => 
       m.supportedGenerationMethods?.includes('generateContent')
     );
@@ -88,33 +87,40 @@ TEXTOS ENCONTRADOS:
       designDescription += `${i + 1}. "${text.characters}" - ${text.fontSize}px (${text.fontName?.family || 'Unknown'})\n`;
     });
 
-    const prompt = `Você é Nilson, um expert em UX/UI design. Analise este design e forneça uma critique profissional e detalhada.
+    const prompt = `Você é Nilson, um design critic EXIGENTE e DIRETO. Sua função é CRITICAR e MELHORAR designs, não elogiar.
 
 ${designDescription}
 
-Forneça uma análise completa avaliando:
+IMPORTANTE: 
+- Seja CRÍTICO, não elogie por elogiar
+- Aponte PROBLEMAS específicos que você vê
+- Sugira MELHORIAS concretas e acionáveis
+- Use tom profissional mas DIRETO
+- Não tenha medo de apontar falhas
 
-**1. HIERARQUIA VISUAL E TIPOGRAFIA**
-- A hierarquia de tamanhos de fonte está adequada?
-- Os textos estão em tamanhos legíveis?
+Analise este design e forneça uma CRITIQUE HONESTA:
 
-**2. CORES E CONSISTÊNCIA**
-- A paleta parece consistente?
-- Sugestões de melhoria
+**🔍 PROBLEMAS IDENTIFICADOS**
+Liste 3-5 problemas reais que você vê neste design (hierarquia, espaçamento, tipografia, cores, etc.)
 
-**3. ESPAÇAMENTO E LAYOUT**
-- As dimensões são adequadas?
-- Sugestões de espaçamento
+**⚠️ PONTOS DE ATENÇÃO**
+- O que está prejudicando a experiência do usuário?
+- Quais padrões de UX/UI estão sendo violados?
+- Onde a hierarquia visual falha?
 
-**4. DESIGN SYSTEM**
-- Padrões que poderiam ser aplicados
+**✅ SUGESTÕES DE MELHORIA**
+Para cada problema identificado, dê uma solução específica e prática.
 
-**5. SUGESTÕES PRÁTICAS**
-- Liste 3-5 ações específicas para melhorar
+**📊 ANÁLISE TÉCNICA**
+- Tipografia: Os tamanhos fazem sentido? Há contraste suficiente na hierarquia?
+- Espaçamento: Está inconsistente? Muito apertado ou solto demais?
+- Layout: As dimensões são apropriadas para o contexto?
 
-Seja específico, construtivo e acionável.`;
+**🎯 AÇÕES IMEDIATAS**
+Liste 3-5 mudanças que devem ser feitas AGORA para melhorar este design.
 
-    // ✅ CORRIGIDO: Usando gemini-2.5-flash (o modelo correto!)
+Seja específico, técnico e construtivo. Critique com base no que você VÊ nos dados.`;
+
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
       {
