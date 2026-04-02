@@ -1,5 +1,5 @@
-const express = require('express');
-const cors = require('cors');
+import express from 'express';
+import cors from 'cors';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,7 +12,8 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 app.get('/', (req, res) => {
   res.json({ 
     status: 'ok', 
-    message: 'Nilson Backend funcionando! 🎯'
+    message: 'Nilson Backend funcionando! 🎯',
+    hasApiKey: !!GEMINI_API_KEY
   });
 });
 
@@ -22,6 +23,10 @@ app.post('/analyze', async (req, res) => {
 
     if (!designInfo) {
       return res.status(400).json({ error: 'designInfo obrigatório' });
+    }
+
+    if (!GEMINI_API_KEY) {
+      return res.status(500).json({ error: 'API Key não configurada' });
     }
 
     let designDescription = `ANÁLISE DE DESIGN - Frame: "${designInfo.name}"
@@ -101,3 +106,5 @@ Seja específico, construtivo e acionável.`;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando na porta ${PORT}`);
 });
+
+export default app;
