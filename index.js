@@ -17,6 +17,14 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/debug', (req, res) => {
+  res.json({
+    hasApiKey: !!GEMINI_API_KEY,
+    apiKeyLength: GEMINI_API_KEY ? GEMINI_API_KEY.length : 0,
+    apiKeyStart: GEMINI_API_KEY ? GEMINI_API_KEY.substring(0, 10) + '...' : 'NENHUMA'
+  });
+});
+
 app.post('/analyze', async (req, res) => {
   try {
     const { designInfo } = req.body;
@@ -67,8 +75,9 @@ Forneça uma análise completa avaliando:
 
 Seja específico, construtivo e acionável.`;
 
+    // CORRIGIDO: Usando gemini-pro em v1 (não v1beta)
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -82,15 +91,23 @@ Seja específico, construtivo e acionável.`;
       }
     );
 
+    console.log('Status da resposta Gemini:', response.status);
+
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('Erro Gemini:', errorText);
-      return res.status(500).json({ error: 'Erro ao chamar Gemini API' });
+      console.error('Erro Gemini (status ${response.status}):', errorText);
+      return res.status(500).json({ 
+        error: 'Erro ao chamar Gemini API', 
+        status: response.status,
+        details: errorText 
+      });
     }
 
     const data = await response.json();
+    console.log('Resposta Gemini recebida com sucesso');
     
     if (!data.candidates || !data.candidates[0]) {
+      console.error('Estrutura de resposta inválida:', data);
       return res.status(500).json({ error: 'Resposta inválida da Gemini' });
     }
 
@@ -98,7 +115,7 @@ Seja específico, construtivo e acionável.`;
     res.json({ success: true, critique });
 
   } catch (error) {
-    console.error('Erro:', error);
+    console.error('Erro completo:', error);
     res.status(500).json({ error: error.message });
   }
 });
