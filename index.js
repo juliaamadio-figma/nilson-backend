@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(express.json({ limit: '50mb' })); // Aumentado para suportar imagens
+app.use(express.json({ limit: '100mb' }));
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
@@ -23,37 +23,6 @@ app.get('/debug', (req, res) => {
     apiKeyLength: GEMINI_API_KEY ? GEMINI_API_KEY.length : 0,
     apiKeyStart: GEMINI_API_KEY ? GEMINI_API_KEY.substring(0, 10) + '...' : 'NENHUMA'
   });
-});
-
-app.get('/list-models', async (req, res) => {
-  try {
-    if (!GEMINI_API_KEY) {
-      return res.status(500).json({ error: 'API Key não configurada' });
-    }
-
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models?key=${GEMINI_API_KEY}`
-    );
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      return res.status(500).json({ error: errorText });
-    }
-
-    const data = await response.json();
-    
-    const generateModels = data.models?.filter(m => 
-      m.supportedGenerationMethods?.includes('generateContent')
-    );
-
-    res.json({ 
-      total: generateModels?.length || 0,
-      models: generateModels?.map(m => m.name) || []
-    });
-
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
 });
 
 app.get('/analyze', (req, res) => {
@@ -74,6 +43,9 @@ app.post('/analyze', async (req, res) => {
     if (!GEMINI_API_KEY) {
       return res.status(500).json({ error: 'API Key não configurada' });
     }
+
+    console.log('Recebendo análise para:', designInfo.name);
+    console.log('Tamanho da imagem base64:', designInfo.image.length, 'chars');
 
     const prompt = `Você é Nilson, especialista em Usabilidade e UX/UI. Analise esta interface usando as 10 Heurísticas de Nielsen.
 
@@ -146,7 +118,6 @@ Ajuda: [X]/10
 
 SEJA ESPECÍFICO sobre o que você VÊ na imagem. Cite cores, tamanhos, posições.`;
 
-    // ✅ CHAMADA COM GEMINI VISION (multimodal)
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
       {
@@ -190,10 +161,6 @@ SEJA ESPECÍFICO sobre o que você VÊ na imagem. Cite cores, tamanhos, posiçõ
     if (data.candidates && data.candidates[0]) {
       const finishReason = data.candidates[0].finishReason;
       console.log('Finish Reason:', finishReason);
-      
-      if (finishReason === 'MAX_TOKENS') {
-        console.warn('⚠️ Resposta cortada por limite de tokens');
-      }
     }
     
     if (!data.candidates || !data.candidates[0]) {
@@ -210,14 +177,7 @@ SEJA ESPECÍFICO sobre o que você VÊ na imagem. Cite cores, tamanhos, posiçõ
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor rodando na porta ${PORT}`);
-});
-
-export default app;
-
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor rodando na porta ${PORT}`);
-});
+// Remover app.listen para Vercel (serverless)
+// O Vercel não usa listen()
 
 export default app;
